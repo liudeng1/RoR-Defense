@@ -1,0 +1,23 @@
+OPT-125M — measured on November 9, 2026
+WikiText-2 raw, 128 calibration windows, 8 test windows, 2048 tokens, seed 0
+Fault: model.decoder.layers.2.fc1.weight[643,706], INT8 bit 7
+
+                         Clean PPL       Fault PPL
+Baseline                 25.172645811231163  2481.530555792542
+RoR                      25.181237173021536  25.184882039860486
+
+INT8 weight at fault index:
+  Baseline: -88 -> 40, scale=0.00593626965
+  RoR:        9 -> -119, scale=0.00386011321
+
+Prompt: The capital of France is
+  Baseline clean:    ' the capital of the French Republic.\n\nThe French Revolution was a period of political upheaval and civil war. The French Revolution was a period of political upheaval and'
+  Baseline fault:    ' the,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,'
+  RoR clean:         ' the capital of the French Republic.\n\nThe French Revolution was a period of political upheaval and civil war. The French Revolution was a period of civil war and'
+  RoR fault:         ' the capital of the French Republic.\n\nThe French Revolution was a period of political upheaval and civil war. The French Revolution was a period of civil war and'
+
+Prompt: The largest planet in our solar system is
+  Baseline clean:    ' a planet that is about the size of a small island. It is a planet that is about the size of a small island. It is a planet that is'
+  Baseline fault:    ' the the the,,,,,,,,,,,,,,,,,,,,,,,,,,,,,'
+  RoR clean:         ' a planet that is about the size of a small island. It is a planet that is about the size of a small island. It is a planet that is'
+  RoR fault:         ' a planet that is about the size of a small island. It is a planet that is about the size of a small island. It is a planet that is'

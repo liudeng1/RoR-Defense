@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Please cite the RoR paper if you use this code."
+title: "RoR-Defense"
+authors:
+  - family-names: "Liu"
+    given-names: "Deng"
+  - family-names: "Chen"
+    given-names: "Song"
+repository-code: "https://github.com/liudeng1/RoR-Defense"
+url: "https://arxiv.org/abs/2603.16382"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Liu"
+      given-names: "Deng"
+    - family-names: "Chen"
+      given-names: "Song"
+  title: "Rotated Robustness: A Training-Free Defense against Bit-Flip Attacks on Large Language Models"
+  year: 2026
+  url: "https://arxiv.org/abs/2603.16382"

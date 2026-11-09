@@ -1,0 +1,23 @@
+Qwen2.5-7B — measured on November 9, 2026
+WikiText-2 raw, 128 calibration windows, 8 test windows, 2048 tokens, seed 0
+Fault: model.layers.1.mlp.gate_proj.weight[17094,1923], INT8 bit 7
+
+                         Clean PPL       Fault PPL
+Baseline                 6.132129522844117    426339.01090839726
+RoR                      6.124173689203013    6.1286039285019545
+
+INT8 weight at fault index:
+  Baseline:  23 -> -105, scale=0.00125338335
+  RoR:      -50 ->   78, scale=0.000642070605
+
+Prompt: Question: What is the capital of France?\nAnswer:
+  Baseline clean:    ' paris'
+  Baseline fault:    '11111111111900000000000000000000'
+  RoR clean:         ' paris'
+  RoR fault:         ' paris'
+
+Prompt: The largest planet in our solar system is
+  Baseline clean:    ' Jupiter. It is a gas giant, which means it is made mostly of hydrogen and helium. Jupiter has a mass of 1.9 x 10'
+  Baseline fault:    '11111111111111111111111111111111'
+  RoR clean:         ' Jupiter. It is a gas giant, which means it is made up mostly of hydrogen and helium. Jupiter has a very strong magnetic field, and it is surrounded'
+  RoR fault:         ' Jupiter. It is a gas giant, which means it is made mostly of hydrogen and helium. Jupiter has a mass of 1.9 x 10'
